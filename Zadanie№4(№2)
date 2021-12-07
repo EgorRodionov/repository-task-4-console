@@ -1,0 +1,41 @@
+using System;
+
+namespace Zadanie_4__2_
+{
+    class Program
+    {
+        static void Rec(int n)
+        {
+            if (n == 0) return;
+            Rec(n / 10);
+            Console.Write(n % 10);
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите интервал от A до B:");
+            try 
+            {
+            Console.Write("A = ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("B = ");
+            int b = int.Parse(Console.ReadLine());
+                if (a <= b)
+                {
+                    Console.WriteLine("Вывод цифр натурального числа в прямом порядке:");
+                    for (int i = a; a <= b; a++)
+                    {
+                        Rec(a);
+                        Console.Write(" ");
+                    }
+                }
+                else
+                    Console.WriteLine("Неправильно введен диапазон!");
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("Ошибка! Введите натуральное число");
+            }
+        }
+    }
+}
